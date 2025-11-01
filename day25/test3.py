@@ -1,0 +1,15 @@
+import argparse
+import cv2
+parper = argparse.ArgumentParser()
+parper.add_argument('--input', type=str, default='img3.jpg', help='input image path')
+parper.add_argument('--output', type=float, default=.0, help='output image path')
+parper.add_argument('--alpha', type=int, default=8, help='so vung nho')
+args = parper.parse_args()
+img = cv2.imread(args.input,0)
+img = cv2.resize(img, (640, 480))
+clade = cv2.createCLAHE(clipLimit=args.alpha, tileGridSize=(args.alpha, args.alpha))
+img_hist = clade.apply(img)
+cv2.imshow("anh goc", img)
+cv2.imshow("anh sau khi can bang phoi mau", img_hist)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

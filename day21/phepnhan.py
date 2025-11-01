@@ -1,0 +1,18 @@
+import cv2 
+import numpy as np
+img1 = cv2.imread("img2.jpg")
+img2 = cv2.imread("img3.jpg")
+img1 = cv2.resize(img1, (640,480))
+img2 = cv2.resize(img2, (640,480))
+img_mul = cv2.multiply(img1, img2)
+img_div = cv2.divide(img1,img2)
+#img_pow = cv2.pow(img1,img2)
+img_sqrt = cv2.sqrt(img1,img2)
+cv2.imshow("anh doc1",img1)
+cv2.imshow("anh doc2",img2)
+cv2.imshow("anh mul",img_mul)
+cv2.imshow("anh img_div",img_div)
+#cv2.imshow("anh img_pow",img_pow)
+cv2.imshow("anh img_sqrt",img_sqrt)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
